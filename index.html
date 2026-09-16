@@ -7,111 +7,345 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 html{scroll-behavior:smooth}
-body{background:#f5f5f5;color:#111;font-family:Arial,Helvetica,sans-serif}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden
+}
+
+/* HEADER */
 
 header{
-position:fixed;top:0;width:100%;height:74px;padding:0 42px;
-display:flex;align-items:center;justify-content:space-between;
-background:#f5f5f5eb;border-bottom:1px solid #d8d8d8;
-backdrop-filter:blur(12px);z-index:10
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:74px;
+    padding:0 42px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#f5f5f5eb;
+    border-bottom:1px solid #d8d8d8;
+    backdrop-filter:blur(12px);
+    z-index:100
 }
 
-.logo{font-size:18px;font-weight:600;letter-spacing:-.5px}
-nav{display:flex;gap:34px}
-nav a{color:#555;text-decoration:none;font-size:14px}
-nav a:hover{color:#000}
+.logo{
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:-.5px
+}
 
-section{padding:120px 7vw;border-bottom:1px solid #d8d8d8}
+nav{
+    display:flex;
+    gap:34px
+}
+
+nav a{
+    color:#555;
+    text-decoration:none;
+    font-size:14px;
+    transition:.25s
+}
+
+nav a:hover{
+    color:#000
+}
+
+/* SECTIONS */
+
+section{
+    padding:120px 7vw;
+    border-bottom:1px solid #d8d8d8
+}
+
+/* HERO */
 
 .hero{
-min-height:100vh;padding:150px 7vw 80px;
-display:flex;flex-direction:column;justify-content:center
+    min-height:100vh;
+    padding:150px 7vw 80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden
 }
 
-.small{color:#777;font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:28px}
+.small{
+    color:#777;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:28px
+}
 
 h1{
-max-width:1100px;font-size:clamp(60px,10vw,150px);
-line-height:.9;letter-spacing:-7px;font-weight:500
+    max-width:1100px;
+    font-size:clamp(60px,10vw,150px);
+    line-height:.9;
+    letter-spacing:-7px;
+    font-weight:500;
+    will-change:transform
 }
 
 .hero-bottom{
-margin-top:70px;display:flex;justify-content:space-between;
-align-items:flex-end;max-width:1100px
+    margin-top:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    max-width:1100px
 }
 
-.desc{max-width:430px;color:#666;font-size:17px;line-height:1.6}
+.desc{
+    max-width:430px;
+    color:#666;
+    font-size:17px;
+    line-height:1.6
+}
 
 .btn{
-display:flex;align-items:center;justify-content:center;
-width:180px;height:54px;background:#111;color:#fff;
-text-decoration:none;font-size:14px;border:1px solid #111;
-transition:.2s
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:180px;
+    height:54px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    border:1px solid #111;
+    transition:.25s
 }
 
-.btn:hover{background:transparent;color:#111;transform:translateY(-2px)}
+.btn:hover{
+    background:transparent;
+    color:#111;
+    transform:translateY(-3px)
+}
+
+/* SECTION HEAD */
 
 .head{
-display:flex;justify-content:space-between;align-items:flex-start;
-margin-bottom:65px
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:65px
 }
 
-.num{color:#888;font-size:13px}
+.num{
+    color:#888;
+    font-size:13px
+}
 
 h2{
-font-size:clamp(38px,5vw,70px);
-font-weight:500;letter-spacing:-3px
+    font-size:clamp(38px,5vw,70px);
+    font-weight:500;
+    letter-spacing:-3px
 }
 
-.info{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+/* INFO */
 
-.list{border-top:1px solid #cfcfcf}
+.info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px
+}
+
+.list{
+    border-top:1px solid #cfcfcf
+}
 
 .item{
-padding:22px 0;display:flex;justify-content:space-between;
-border-bottom:1px solid #cfcfcf;font-size:15px
+    padding:22px 0;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid #cfcfcf;
+    font-size:15px
 }
 
-.item span:last-child{color:#888}
+.item span:last-child{
+    color:#888
+}
+
+/* CARDS */
 
 .cards{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:1px;background:#d0d0d0;border:1px solid #d0d0d0
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:#d0d0d0;
+    border:1px solid #d0d0d0
 }
 
 .card{
-min-height:300px;padding:32px;background:#f5f5f5;
-display:flex;flex-direction:column;justify-content:space-between;
-transition:.25s
+    min-height:300px;
+    padding:32px;
+    background:#f5f5f5;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:
+        background .3s ease,
+        transform .3s ease
 }
 
-.card:hover{background:#fff;transform:translateY(-4px)}
-.card small{color:#999}
-.card h3{font-size:27px;font-weight:500;letter-spacing:-1px}
-.card p{margin-top:15px;color:#666;font-size:14px;line-height:1.6}
-.arrow{align-self:flex-end;font-size:25px;color:#555}
+.card:hover{
+    background:#fff;
+    transform:translateY(-5px)
+}
+
+.card small{
+    color:#999
+}
+
+.card h3{
+    font-size:27px;
+    font-weight:500;
+    letter-spacing:-1px
+}
+
+.card p{
+    margin-top:15px;
+    color:#666;
+    font-size:14px;
+    line-height:1.6
+}
+
+.arrow{
+    align-self:flex-end;
+    font-size:25px;
+    color:#555
+}
+
+/* FOOTER */
 
 footer{
-min-height:220px;padding:45px 7vw;background:#111;color:#fff;
-display:flex;justify-content:space-between;align-items:flex-end
+    min-height:220px;
+    padding:45px 7vw;
+    background:#111;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end
 }
 
-.footer-title{font-size:25px}
-.copy{color:#888;font-size:13px}
+.footer-title{
+    font-size:25px
+}
+
+.copy{
+    color:#888;
+    font-size:13px
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(70px);
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.22,1,.36,1)
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0)
+}
+
+.card.reveal:nth-child(2){
+    transition-delay:.12s
+}
+
+.card.reveal:nth-child(3){
+    transition-delay:.24s
+}
+
+/* HERO ANIMATION */
+
+.hero .small{
+    opacity:0;
+    transform:translateY(30px);
+    animation:heroIn .9s .1s forwards
+}
+
+.hero h1{
+    opacity:0;
+    transform:translateY(60px);
+    animation:heroIn 1s .2s forwards
+}
+
+.hero-bottom{
+    opacity:0;
+    transform:translateY(40px);
+    animation:heroIn .9s .4s forwards
+}
+
+@keyframes heroIn{
+    to{
+        opacity:1;
+        transform:translateY(0)
+    }
+}
+
+/* MOBILE */
 
 @media(max-width:800px){
-header{padding:0 20px}
-nav{gap:15px}
-nav a{font-size:12px}
-.hero{padding:130px 25px 60px}
-h1{letter-spacing:-4px}
-.hero-bottom{margin-top:50px;flex-direction:column;align-items:flex-start;gap:30px}
-section{padding:80px 25px}
-.head{margin-bottom:40px}
-.cards,.info{grid-template-columns:1fr}
-.info{gap:50px}
-footer{padding:35px 25px;flex-direction:column;align-items:flex-start;gap:30px}
+
+    header{
+        padding:0 20px
+    }
+
+    nav{
+        gap:15px
+    }
+
+    nav a{
+        font-size:12px
+    }
+
+    .hero{
+        padding:130px 25px 60px
+    }
+
+    h1{
+        letter-spacing:-4px
+    }
+
+    .hero-bottom{
+        margin-top:50px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:30px
+    }
+
+    section{
+        padding:80px 25px
+    }
+
+    .head{
+        margin-bottom:40px
+    }
+
+    .cards,
+    .info{
+        grid-template-columns:1fr
+    }
+
+    .info{
+        gap:50px
+    }
+
+    footer{
+        padding:35px 25px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:30px
+    }
 }
 </style>
 </head>
@@ -119,93 +353,281 @@ footer{padding:35px 25px;flex-direction:column;align-items:flex-start;gap:30px}
 <body>
 
 <header>
-<div class="logo">Физические Номера</div>
-<nav>
-<a href="#about">О проекте</a>
-<a href="#services">Возможности</a>
-<a href="#contact">Контакты</a>
-</nav>
+
+    <div class="logo">
+        Физические Номера
+    </div>
+
+    <nav>
+        <a href="#about">О проекте</a>
+        <a href="#services">Возможности</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
 </header>
+
 
 <main>
 
-<section class="hero">
-<div class="small">Физические Номера / 001</div>
-<h1>Физические<br>Номера</h1>
+    <!-- HERO -->
 
-<div class="hero-bottom">
-<p class="desc">
-Сервис для работы с физическими телефонными номерами.
-Простая система управления и удобный доступ к необходимым функциям.
-</p>
-<a class="btn" href="#services">Перейти к номерам →</a>
-</div>
-</section>
+    <section class="hero">
 
-<section id="about">
-<div class="head">
-<div class="num">01 / О ПРОЕКТЕ</div>
-<h2>Всё необходимое<br>в одном месте.</h2>
-</div>
+        <div class="small">
+            Физические Номера / 001
+        </div>
 
-<div class="info">
-<p class="desc">
-Здесь будет размещена основная информация о сервисе,
-его возможностях и принципе работы.
-</p>
+        <h1>
+            Физические<br>
+            Номера
+        </h1>
 
-<div class="list">
-<div class="item"><span>Физические устройства</span><span>01</span></div>
-<div class="item"><span>Управление номерами</span><span>02</span></div>
-<div class="item"><span>История операций</span><span>03</span></div>
-<div class="item"><span>Личный кабинет</span><span>04</span></div>
-</div>
-</div>
-</section>
+        <div class="hero-bottom">
 
-<section id="services">
-<div class="head">
-<div class="num">02 / ВОЗМОЖНОСТИ</div>
-<h2>Что здесь<br>можно сделать.</h2>
-</div>
+            <p class="desc">
+                Сервис для работы с физическими телефонными номерами.
+                Простая система управления и удобный доступ к необходимым функциям.
+            </p>
 
-<div class="cards">
+            <a class="btn" href="#services">
+                Перейти к номерам →
+            </a>
 
-<div class="card">
-<small>001</small>
-<div><h3>Номера</h3><p>Просмотр доступных физических номеров и информации о них.</p></div>
-<div class="arrow">↗</div>
-</div>
+        </div>
 
-<div class="card">
-<small>002</small>
-<div><h3>Управление</h3><p>Управление подключенными номерами через единый интерфейс.</p></div>
-<div class="arrow">↗</div>
-</div>
+    </section>
 
-<div class="card">
-<small>003</small>
-<div><h3>Кабинет</h3><p>Личный раздел пользователя со всей необходимой информацией.</p></div>
-<div class="arrow">↗</div>
-</div>
 
-</div>
-</section>
+    <!-- ABOUT -->
 
-<section id="contact">
-<div class="head">
-<div class="num">03 / КОНТАКТЫ</div>
-<h2>Остались<br>вопросы?</h2>
-</div>
-<p class="desc">Здесь позже можно разместить контакты, Telegram или форму обратной связи.</p>
-</section>
+    <section id="about">
+
+        <div class="head">
+
+            <div class="num">
+                01 / О ПРОЕКТЕ
+            </div>
+
+            <h2>
+                Всё необходимое<br>
+                в одном месте.
+            </h2>
+
+        </div>
+
+
+        <div class="info">
+
+            <p class="desc">
+                Здесь будет размещена основная информация о сервисе,
+                его возможностях и принципе работы.
+            </p>
+
+
+            <div class="list">
+
+                <div class="item">
+                    <span>Физические устройства</span>
+                    <span>01</span>
+                </div>
+
+                <div class="item">
+                    <span>Управление номерами</span>
+                    <span>02</span>
+                </div>
+
+                <div class="item">
+                    <span>История операций</span>
+                    <span>03</span>
+                </div>
+
+                <div class="item">
+                    <span>Личный кабинет</span>
+                    <span>04</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+        <div class="head">
+
+            <div class="num">
+                02 / ВОЗМОЖНОСТИ
+            </div>
+
+            <h2>
+                Что здесь<br>
+                можно сделать.
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <small>001</small>
+
+                <div>
+                    <h3>Номера</h3>
+
+                    <p>
+                        Просмотр доступных физических номеров
+                        и информации о них.
+                    </p>
+                </div>
+
+                <div class="arrow">
+                    ↗
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <small>002</small>
+
+                <div>
+                    <h3>Управление</h3>
+
+                    <p>
+                        Управление подключенными номерами
+                        через единый интерфейс.
+                    </p>
+                </div>
+
+                <div class="arrow">
+                    ↗
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <small>003</small>
+
+                <div>
+                    <h3>Кабинет</h3>
+
+                    <p>
+                        Личный раздел пользователя со всей
+                        необходимой информацией.
+                    </p>
+                </div>
+
+                <div class="arrow">
+                    ↗
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="head">
+
+            <div class="num">
+                03 / КОНТАКТЫ
+            </div>
+
+            <h2>
+                Остались<br>
+                вопросы?
+            </h2>
+
+        </div>
+
+        <p class="desc">
+            Здесь позже можно разместить контакты,
+            Telegram или форму обратной связи.
+        </p>
+
+    </section>
 
 </main>
 
+
 <footer>
-<div class="footer-title">Физические Номера</div>
-<div class="copy">© 2026</div>
+
+    <div class="footer-title">
+        Физические Номера
+    </div>
+
+    <div class="copy">
+        © 2026
+    </div>
+
 </footer>
+
+
+<script>
+
+const elements = document.querySelectorAll(
+    "#about .head, #about .info, #services .head, #services .cards, #contact .head, #contact .desc, .card"
+);
+
+elements.forEach(element => {
+    element.classList.add("reveal");
+});
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+elements.forEach(element => {
+    observer.observe(element);
+});
+
+
+/* Плавное движение главного заголовка */
+
+const heroTitle = document.querySelector(".hero h1");
+
+window.addEventListener("scroll", () => {
+
+    const scroll = window.scrollY;
+
+    if(scroll < window.innerHeight){
+        heroTitle.style.translate = `0 ${scroll * 0.08}px`;
+    }
+
+});
+
+</script>
 
 </body>
 </html>
