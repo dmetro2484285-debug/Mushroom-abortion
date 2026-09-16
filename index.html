@@ -150,7 +150,7 @@ box-shadow:
 0 0 25px rgba(100,100,100,.25),
 0 0 45px rgba(100,100,100,.15),
 0 0 70px rgba(100,100,100,.08);
-transition:.3s
+transition:transform .35s ease,box-shadow .35s ease
 }
 
 .support:hover{
@@ -160,6 +160,16 @@ box-shadow:
 0 0 30px rgba(100,100,100,.3),
 0 0 55px rgba(100,100,100,.18),
 0 0 80px rgba(100,100,100,.1)
+}
+
+/* Уменьшение во время скролла */
+.support.scrolling{
+transform:scale(.75);
+box-shadow:
+0 0 7px rgba(100,100,100,.25),
+0 0 18px rgba(100,100,100,.17),
+0 0 32px rgba(100,100,100,.1),
+0 0 50px rgba(100,100,100,.05)
 }
 
 .support img{
@@ -605,7 +615,7 @@ Telegram или форму обратной связи.
 </footer>
 
 
-<!-- Фиксированная кнопка поддержки -->
+<!-- Кнопка поддержки -->
 
 <a class="support" href="#contact">
 <img src="support.png" alt="SUPPORT">
@@ -638,6 +648,8 @@ observer.observe(element);
 });
 
 
+/* Параллакс заголовка */
+
 addEventListener("scroll",()=>{
 
 if(scrollY<innerHeight){
@@ -646,6 +658,27 @@ document.querySelector("h1").style.translate=
 `0 ${scrollY*.08}px`;
 
 }
+
+});
+
+
+/* Уменьшение кнопки при скролле */
+
+const support=document.querySelector(".support");
+
+let scrollTimer;
+
+addEventListener("scroll",()=>{
+
+support.classList.add("scrolling");
+
+clearTimeout(scrollTimer);
+
+scrollTimer=setTimeout(()=>{
+
+support.classList.remove("scrolling");
+
+},350);
 
 });
 
